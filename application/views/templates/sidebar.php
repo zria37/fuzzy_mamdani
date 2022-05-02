@@ -1,4 +1,37 @@
 <!-- Sidebar -->
+<?php 
+      $uri = $this->uri->segment(2);
+      $master ='';
+      $anggota = '';
+      $akun = '';
+      $rules = '';
+  
+  if($uri =='akun'){ 
+    $master = 'active';
+    $akun = 'active';
+  
+  }else if($uri == 'anggota'){
+    $master = 'active';
+    $anggota = 'active';
+
+  }else if($uri == 'rules'){
+    $master = 'active';
+    $rules = 'active';
+
+  }else{
+    $master ='';
+    $anggota = '';
+    $akun = '';
+    $rules = '';
+  }
+?>
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="<?php echo base_url('template/dist/img/AdminLTELogo.png')?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
 <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -15,30 +48,30 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link  <?php echo $master?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Master
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('template/index.html')?>" class="nav-link">
+                <a href="<?php echo base_url('master')?>/akun" class="nav-link <?php echo $akun?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Akun</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('template/index2.html')?>" class="nav-link">
+                <a href="<?php echo base_url('master')?>/anggota" class="nav-link <?php echo $anggota?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Anggota</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('template/index3.html')?>" class="nav-link">
+                <a href="<?php echo base_url('master')?>/rules" class="nav-link <?php echo $rules?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Rules</p>
                 </a>
               </li>
             </ul>
@@ -48,3 +81,4 @@
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
+  </aside>
